@@ -34,6 +34,51 @@ class Node:
         return "Node:({}, {})".format(self.value, self.children)
 
 
+def flatten_tree(tree: Node):
+    """BFS"""
+    visited = []
+    need_visit = []
+
+    def inner(node):
+        visited.append(node.value)
+        for n in node.children:
+            need_visit.append(n)
+
+    need_visit.append(tree)
+    while len(need_visit) > 0:
+        inner(need_visit.pop(0))
+    return visited
+
+
+def merge_to_tree(tree, lst):
+    """ create node from list values, and insert to tree """
+    first_elem = lst.pop(0)
+    n = find_position(tree, first_elem)
+    if n is None:
+        n = tree
+    for elem in lst:
+        next_node = n.find_sub_node(elem)
+        if next_node is not None:
+            n = next_node
+        else:
+            next_node = Node(elem)
+            n.append_sub_node(next_node)
+            n = next_node
+    return tree
+
+
+def find_position(node, value):
+    """ find node from tree by value, if not found return None """
+    if not node.children:
+        return None
+    for sub_node in node.children:
+        if value == sub_node.value:
+            return sub_node
+        rtn = find_position(sub_node, value)
+        if rtn is not None:
+            return rtn
+
+
 # meaningless value
 void = type('Void', (object,), {})
 

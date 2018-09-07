@@ -1,0 +1,4 @@
+# image list of maintenance
+- traefik:1.7
+- jaegertracing/all-in-one:latest
+- openresty/openresty:1.13.\d+.\d+-alpine
