@@ -10,7 +10,7 @@ from .nodes import Node, merge_to_tree, flatten_tree
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        prog='image-cleaner',
+        prog='rmi',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         description=textwrap.dedent('''\
             ==============================
@@ -31,7 +31,7 @@ def main():
     args = parse_args()
     if args.config is None:
         print(f"{Fore.RED}config not specified, "
-              "use '-h' to show help.{Style.RESET_ALL}")
+              f"use '-h' to show help.{Style.RESET_ALL}")
         sys.exit(1)
 
     if not os.path.exists(args.config):
