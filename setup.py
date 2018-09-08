@@ -20,12 +20,12 @@ with open(os.path.join(_root, 'README.md')) as f:
 
 
 setup(
-    name='image-cleaner',
+    name='docker-image-janitor',
     version=version,
-    description='A Python library for the clean docker images.',
+    description='A Python library for the clean unneeded docker images.',
     long_description=readme,
     long_description_content_type='text/markdown',
-    url='https://github.com/Hanaasagi/image-cleaner',
+    url='https://github.com/Hanaasagi/docker-image-janitor',
     author='Hanaasagi',
     author_email='ambiguous404@gmail.com',
     license='MIT',
